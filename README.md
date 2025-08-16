@@ -2,9 +2,9 @@
 
 ![App Preview](./Hike/images/image_1.png)
 
-[![Swift](https://img.shields.io/badge/Swift-5.10-orange?logo=swift)](https://swift.org)
-[![Xcode](https://img.shields.io/badge/Xcode-15-blue?logo=xcode&logoColor=white)](https://developer.apple.com/xcode/)
-[![Platform](https://img.shields.io/badge/Platform-iOS%2017-lightgrey?logo=apple)](https://developer.apple.com/ios/)
+[![Swift](https://img.shields.io/badge/Swift-6.1-orange?logo=swift)](https://swift.org)
+[![Xcode](https://img.shields.io/badge/Xcode-16.4-blue?logo=xcode&logoColor=white)](https://developer.apple.com/xcode/)
+[![Platform](https://img.shields.io/badge/Platform-iOS%2018.5-lightgrey?logo=apple)](https://developer.apple.com/ios/)
 [![SwiftUI](https://img.shields.io/badge/Framework-SwiftUI-purple?logo=swift&logoColor=white)](https://developer.apple.com/xcode/swiftui/)
 
 ---
