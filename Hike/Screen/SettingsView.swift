@@ -53,7 +53,6 @@ struct SettingsView: View {
                         .italic()
                         .foregroundStyle(.secondary)
                     
-                    
                     Text("Dust off the boots! It's time for a walk.")
                         .fontWeight(.heavy)
                         .foregroundColor(.customGreenMedium)
@@ -62,15 +61,81 @@ struct SettingsView: View {
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 16)
                 .frame(maxWidth: .infinity)
-    
-                
-              
             } //: HEADER SECTION
             .listRowSeparator(.hidden)
             
             // SECTION ICONS
             
+            
             // SECTION ABOUT
+            Section(
+                header: Text("About the app")
+                    .font(.title2)
+                    .fontWeight(.heavy),
+                footer: HStack {
+                    Spacer()
+                    Text("Made with ❤️ by Josue Lubaki")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                        .padding(.vertical, 8)
+                    Spacer()
+                }
+                .padding(.vertical, 8)
+            ) {
+                // 1. Basis Labeled Content
+                // LabeledContent("Application", value : "Hike")
+                
+                // 2. Advances Labeled content
+                CustomListRowView(
+                    rowLabel: "Application",
+                    rowIcon: "apps.iphone",
+                    rowContent: "HIKE",
+                    rowTintColor: .blue
+                )
+                
+                CustomListRowView(
+                    rowLabel: "Compatibility",
+                    rowIcon: "info.circle",
+                    rowContent: "iOS, iPadOS",
+                    rowTintColor: .red
+                )
+                
+                CustomListRowView(
+                    rowLabel: "Technology",
+                    rowIcon: "swift",
+                    rowContent: "Swift",
+                    rowTintColor: .orange
+                )
+                
+                CustomListRowView(
+                    rowLabel: "Version",
+                    rowIcon: "gear",
+                    rowContent: "1.0",
+                    rowTintColor: .purple
+                )
+                
+                CustomListRowView(
+                    rowLabel: "Developer",
+                    rowIcon: "ellipsis.curlybraces",
+                    rowContent: "Josue Lubaki",
+                    rowTintColor: .mint
+                )
+                
+                CustomListRowView(
+                    rowLabel: "Designer",
+                    rowIcon: "paintpalette",
+                    rowContent: "Robert Petras",
+                    rowTintColor: .pink
+                )
+                
+                CustomListRowView(
+                    rowLabel: "Website",
+                    rowIcon: "globe",
+                    rowTintColor: .indigo,
+                    rowLinkLabel: "Portfolio",
+                    rowLinkDestination: "https://josue-lubaki.ca"
+                )
+            } //: SECTION
         } //: LIST
     }
 }
