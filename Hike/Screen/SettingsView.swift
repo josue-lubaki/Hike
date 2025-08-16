@@ -8,6 +8,16 @@
 import SwiftUI
 
 struct SettingsView: View {
+    // MARK: - PROPERTIES
+    private let alternateAppIcons : [String] = [
+        "AppIcon-MagnifyingGlass",
+        "AppIcon-Map",
+        "AppIcon-Mushroom",
+        "AppIcon-Camera",
+        "AppIcon-Backpack",
+        "AppIcon-Campfire",
+    ]
+    
     var body: some View {
         List {
             // SECTION HEADER
@@ -32,13 +42,15 @@ struct SettingsView: View {
                     Spacer()
                 } //: HSTACK
                 .foregroundStyle(
-                    LinearGradient(colors: [
-                        .customGreenLight,
-                        .customGreenMedium,
-                        .customGreenDark
-                    ],
-                                   startPoint: .top,
-                                   endPoint: .bottom)
+                    LinearGradient(
+                        colors: [
+                            .customGreenLight,
+                            .customGreenMedium,
+                            .customGreenDark
+                        ],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
                 )
                 .padding(.top, 8)
                 
@@ -65,13 +77,47 @@ struct SettingsView: View {
             .listRowSeparator(.hidden)
             
             // SECTION ICONS
-            
+            Section(header: Text("Alternate Icons")){
+                
+                ScrollView(.horizontal, showsIndicators: false){
+                    HStack(spacing: 12) {
+                        ForEach(alternateAppIcons.indices, id : \.self) { item in
+                            Button {
+                                UIApplication.shared.setAlternateIconName(alternateAppIcons[item]) { error in
+                                    
+                                    if error != nil {
+                                        print("Failed to set alternate icon: \(error!.localizedDescription)")
+                                    }
+                                    else {
+                                        print("Success! You have changed the app's icon to \(alternateAppIcons[item])")
+                                    }
+                                }
+                                
+                            } label: {
+                                Image("\(alternateAppIcons[item])-Preview")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 80, height: 80)
+                                    .cornerRadius(16)
+                            }
+                            .buttonStyle(.borderless)
+                        }
+                    }
+                } //: SCROLL VIEW
+                .padding(.top, 12)
+                
+                Text("Choose your favourite app icon from the collection above.")
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.secondary)
+                    .font(.footnote)
+                    .padding(.bottom, 12)
+            } //: SECTION
+            .listRowSeparator(.hidden)
             
             // SECTION ABOUT
             Section(
-                header: Text("About the app")
-                    .font(.title2)
-                    .fontWeight(.heavy),
+                header: Text("About the app"),
                 footer: HStack {
                     Spacer()
                     Text("Made with ❤️ by Josue Lubaki")
